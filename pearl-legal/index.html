@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pearl Investment Corporation — Firma legal internacional especializada en recuperación de capital, trazabilidad de activos y resolución de conflictos transfronterizos complejos." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Pearl Investment Corporation — International Legal Services" />
+  <meta property="og:description" content="Recuperación legal de capital. Asesoría jurídica especializada en entornos de alta complejidad." />
+  <meta property="og:type" content="website" />
+
+  <title>Pearl Investment Corporation — International Legal Services</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       NAVIGATION
+       ============================================= -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav__inner">
+
+      <a href="#inicio" class="nav__logo-link" aria-label="Pearl Investment Corporation — Inicio">
+        <img
+          src="assets/logo-horizontal.png"
+          alt="Pearl Investment Corporation"
+          class="nav__logo"
+          width="200"
+          height="44"
+        />
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#inicio"   class="nav__link is-active" data-section="inicio">Inicio</a></li>
+        <li><a href="#firma"    class="nav__link" data-section="firma">La Firma</a></li>
+        <li><a href="#areas"    class="nav__link" data-section="areas">Áreas de Práctica</a></li>
+        <li><a href="#proceso"  class="nav__link" data-section="proceso">Proceso Legal</a></li>
+        <li><a href="#contacto" class="nav__link" data-section="contacto">Contacto</a></li>
+      </ul>
+
+      <button class="nav__cta" data-modal-open aria-label="Solicitar evaluación legal">
+        Solicitar evaluación legal
+      </button>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav__mobile" id="mobileNav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <a href="#inicio"   class="nav__mobile-link">Inicio</a>
+    <a href="#firma"    class="nav__mobile-link">La Firma</a>
+    <a href="#areas"    class="nav__mobile-link">Áreas de Práctica</a>
+    <a href="#proceso"  class="nav__mobile-link">Proceso Legal</a>
+    <a href="#contacto" class="nav__mobile-link">Contacto</a>
+    <button class="btn btn--primary btn--block" data-modal-open>
+      Solicitar evaluación legal
+    </button>
+  </div>
+
+
+  <main id="main-content">
+
+    <!-- =============================================
+         HERO
+         ============================================= -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="hero__content">
+
+        <div class="hero__emblem" aria-hidden="true">
+          <img src="assets/symbol.png" alt="" width="100" height="100" />
+        </div>
+
+        <p class="hero__eyebrow reveal">Pearl Investment Corporation</p>
+
+        <h1 class="hero__title reveal reveal-delay-1" id="hero-title">
+          Recuperación<br/>
+          Legal de Capital
+        </h1>
+
+        <p class="hero__subtitle reveal reveal-delay-2">
+          Asesoría jurídica especializada en recuperación de fondos e inversiones
+          transfronterizas en entornos de alta complejidad.
+        </p>
+
+        <div class="hero__trust reveal reveal-delay-3" aria-label="Señales de confianza">
+          <div class="hero__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 7v5l3 2"></path>
+            </svg>
+            <span>Más de 10 años de experiencia</span>
+          </div>
+          <div class="hero__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+              <rect x="4" y="11" width="16" height="9" rx="2"></rect>
+              <path d="M8 11V8a4 4 0 118 0v3"></path>
+            </svg>
+            <span>Evaluación 100% confidencial</span>
+          </div>
+          <div class="hero__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+              <path d="M12 3l8 4v5c0 5-3.5 7.8-8 9-4.5-1.2-8-4-8-9V7l8-4z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+            <span>Asesoría Jurídica Certificada</span>
+          </div>
+        </div>
+
+        <div class="hero__actions reveal reveal-delay-4">
+          <button class="btn btn--primary" data-modal-open>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            Solicitar evaluación legal inicial
+          </button>
+          <a href="#firma" class="btn btn--outline">
+            Conocer la firma
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="hero__scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+
+    </section>
+
+
+    <!-- =============================================
+         STATS BAR
+         ============================================= -->
+    <div class="stats-bar" aria-label="Estadísticas de la firma">
+      <div class="stats-bar__inner container">
+        <div class="stats-bar__item reveal">
+          <div class="stat__value">
+            <span data-target="15" data-suffix="+">0+</span>
+          </div>
+          <div class="stat__label">Años de experiencia</div>
+        </div>
+        <div class="stats-bar__item reveal reveal-delay-1">
+          <div class="stat__value">
+            <span data-target="40" data-suffix="+">0+</span>
+          </div>
+          <div class="stat__label">Jurisdicciones activas</div>
+        </div>
+        <div class="stats-bar__item reveal reveal-delay-2">
+          <div class="stat__value">
+            <span data-target="300" data-suffix="+">0+</span>
+          </div>
+          <div class="stat__label">Casos resueltos</div>
+        </div>
+        <div class="stats-bar__item reveal reveal-delay-3">
+          <div class="stat__value">
+            <span data-target="98" data-suffix="%">0%</span>
+          </div>
+          <div class="stat__label">Tasa de satisfacción</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- =============================================
+         FEATURES — ESCENARIOS DE ALTA COMPLEJIDAD
+         ============================================= -->
+    <section class="section section--dark" id="firma" aria-labelledby="features-title">
+      <div class="container">
+
+        <header class="section__header">
+          <p class="section-label reveal">Especialización</p>
+          <h2 class="section__title reveal reveal-delay-1" id="features-title">
+            Escenarios de<br/><em>alta complejidad</em>
+          </h2>
+          <p class="section__lead reveal reveal-delay-2">
+            Actuamos exclusivamente en situaciones que requieren rigor técnico
+            y capacidad de ejecución transfronteriza.
+          </p>
+        </header>
+
+        <div class="grid-2 reveal reveal-delay-2">
+
+          <article class="card hover-lift" aria-label="Recuperación de Fondos">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Recuperación de Fondos</h3>
+            <p class="card__body">
+              Gestión legal de capitales retenidos, bloqueados o desviados en
+              operaciones internacionales. Trazabilidad forense y estrategia de recuperación.
+            </p>
+          </article>
+
+          <article class="card hover-lift" aria-label="Conflictos de Inversión">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Conflictos de Inversión</h3>
+            <p class="card__body">
+              Resolución de disputas derivadas de inversiones fallidas o
+              incumplimientos contractuales complejos bajo marcos normativos internacionales.
+            </p>
+          </article>
+
+          <article class="card hover-lift" aria-label="Mitigación de Riesgo">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Mitigación de Riesgo</h3>
+            <p class="card__body">
+              Estructuración jurídica para la protección de patrimonio en jurisdicciones
+              múltiples. Blindaje legal preventivo y gestión de exposición regulatoria.
+            </p>
+          </article>
+
+          <article class="card hover-lift" aria-label="Regulación Estricta">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Regulación Estricta</h3>
+            <p class="card__body">
+              Operación bajo marcos normativos estrictos y cumplimiento riguroso de
+              estándares internacionales AML, KYC y normas de compliance transfronterizo.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         PROCESO — ENFOQUE ESTRUCTURADO
+         ============================================= -->
+    <section class="section" id="proceso" aria-labelledby="proceso-title">
+      <div class="container">
+
+        <div class="process-layout">
+
+          <div>
+            <p class="section-label reveal">Metodología</p>
+            <h2 class="section__title section__title--left reveal reveal-delay-1" id="proceso-title">
+              Proceso<br/><em>legal</em>
+            </h2>
+            <p class="section__lead section__lead--left reveal reveal-delay-2">
+              Secuencia de intervención legal estructurada, orientada a evaluar, definir y ejecutar cada caso con rigor.
+            </p>
+
+            <div class="divider divider--spaced reveal reveal-delay-2"></div>
+
+            <blockquote class="editorial-quote reveal reveal-delay-3">
+              "Cada fase se desarrolla con control técnico, criterio jurídico y seguimiento constante."
+            </blockquote>
+          </div>
+
+          <div>
+            <article class="process-step reveal">
+              <div class="process-step__num">01</div>
+              <div>
+                <h3 class="process-step__title">Fase I · Evaluación Legal</h3>
+                <p class="process-step__body">
+                  <strong>Preliminar</strong>
+                  <br/>
+                  Determinación de viabilidad jurídica prima facie. Revisión técnica de documentación, verificación de
+                  legitimación y análisis de plazos.
+                  <br/><br/>
+                  <em>Nota: La evaluación inicial no constituye asesoría definitiva ni aceptación del caso.</em>
+                </p>
+              </div>
+            </article>
+
+            <article class="process-step reveal reveal-delay-1">
+              <div class="process-step__num">02</div>
+              <div>
+                <h3 class="process-step__title">Fase II · Análisis Regulatorio</h3>
+                <p class="process-step__body">
+                  <strong>Técnico</strong>
+                  <br/>
+                  Estudio profundo del marco normativo y jurisdiccional. Determinación de competencia judicial
+                  internacional y ley aplicable.
+                  <br/><br/>
+                  Análisis de fueros exclusivos y concurrentes.
+                  <br/>
+                  Verificación de requisitos regulatorios sectoriales.
+                </p>
+              </div>
+            </article>
+
+            <article class="process-step reveal reveal-delay-2">
+              <div class="process-step__num">03</div>
+              <div>
+                <h3 class="process-step__title">Fase III · Estrategia</h3>
+                <p class="process-step__body">
+                  <strong>Definición</strong>
+                  <br/>
+                  Diseño de la hoja de ruta legal. Selección de vías de resolución (negociación, arbitraje, litigio)
+                  y planificación de recursos.
+                  <br/><br/>
+                  Estructuración de equipos legales en destino.
+                  <br/>
+                  Planificación de costes y cronograma.
+                </p>
+              </div>
+            </article>
+
+            <article class="process-step reveal reveal-delay-3">
+              <div class="process-step__num">04</div>
+              <div>
+                <h3 class="process-step__title">Fase IV · Intervención</h3>
+                <p class="process-step__body">
+                  <strong>Ejecución</strong>
+                  <br/>
+                  Ejecución material de acciones legales. Formalización de demandas, gestión de notificaciones y
+                  actuación procesal ante instancias competentes.
+                </p>
+              </div>
+            </article>
+
+            <article class="process-step reveal reveal-delay-4">
+              <div class="process-step__num">05</div>
+              <div>
+                <h3 class="process-step__title">Fase V · Control</h3>
+                <p class="process-step__body">
+                  <strong>Seguimiento</strong>
+                  <br/>
+                  Monitoreo continuo del impulso procesal, reporte al cliente y supervisión de la ejecución efectiva
+                  de resoluciones.
+                </p>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         ÁREAS DE PRÁCTICA
+         ============================================= -->
+    <section class="section section--charcoal" id="areas" aria-labelledby="areas-title">
+      <div class="container">
+
+        <header class="section__header">
+          <p class="section-label reveal">Especialización vertical</p>
+          <h2 class="section__title reveal reveal-delay-1" id="areas-title">
+            Áreas de<br/><em>práctica</em>
+          </h2>
+          <p class="section__lead reveal reveal-delay-2">
+            Profundidad técnica en la protección y recuperación de capital.
+          </p>
+        </header>
+
+        <div class="grid-3">
+
+          <article class="card hover-lift reveal practice-card" data-practice-card="1">
+            <div class="card__number" aria-hidden="true">01</div>
+            <h3 class="card__title">Recuperación de Fondos y Trazabilidad</h3>
+            <p class="card__body practice-card__preview">
+              Recuperación legal de fondos y activos mediante análisis forense financiero y rastreo transfronterizo.
+            </p>
+            <button class="practice-card__toggle" type="button" aria-expanded="false" data-practice-card-toggle="1">
+              <span>Ver más</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="practice-card__more-content" data-practice-card-content="1">
+              <p class="card__body">
+                Aplicamos herramientas legales especializadas para identificar, localizar y recuperar capital retenido,
+                bloqueado o desviado. El proceso incluye análisis de flujos financieros, identificación de estructuras
+                intermediarias y coordinación con autoridades competentes.
+              </p>
+              <p class="card__body">
+                Cumplimiento estricto con normativas de protección de datos y prevención de blanqueo de capitales en
+                cada territorio.
+              </p>
+            </div>
+          </article>
+
+          <article class="card hover-lift reveal reveal-delay-1 practice-card" data-practice-card="2">
+            <div class="card__number" aria-hidden="true">02</div>
+            <h3 class="card__title">Asesoría en Inversiones Internacionales</h3>
+            <p class="card__body practice-card__preview">
+              Protección jurídica de inversiones transfronterizas bajo marcos regulatorios múltiples.
+            </p>
+            <button class="practice-card__toggle" type="button" aria-expanded="false" data-practice-card-toggle="2">
+              <span>Ver más</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="practice-card__more-content" data-practice-card-content="2">
+              <p class="card__body">
+                Desde due diligence legal hasta la gestión de conflictos post-inversión. Analizamos marcos normativos
+                locales, tratados bilaterales de inversión y regulaciones sectoriales para mitigar riesgos regulatorios
+                y contractuales.
+              </p>
+              <p class="card__body">
+                Coordinación de estrategias de resolución mediante negociación, mediación internacional o arbitraje.
+              </p>
+            </div>
+          </article>
+
+          <article class="card hover-lift reveal reveal-delay-2 practice-card" data-practice-card="3">
+            <div class="card__number" aria-hidden="true">03</div>
+            <h3 class="card__title">Estructuración Legal Transfronteriza</h3>
+            <p class="card__body practice-card__preview">
+              Diseño de estructuras legales para operaciones financieras y corporativas internacionales.
+            </p>
+            <button class="practice-card__toggle" type="button" aria-expanded="false" data-practice-card-toggle="3">
+              <span>Ver más</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="practice-card__more-content" data-practice-card-content="3">
+              <p class="card__body">
+                Garantía de cumplimiento normativo estricto en cada jurisdicción. Planificación legal de inversiones,
+                constitución de vehículos conforme a regulaciones aplicables y optimización de marcos contractuales.
+              </p>
+              <p class="card__body">
+                Enfoque en estabilidad jurídica y previsibilidad legal en entornos internacionales complejos.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         ABOUT — LA FIRMA
+         ============================================= -->
+    <section class="section section--dark" aria-labelledby="about-title">
+      <div class="container">
+
+        <div class="about-split">
+
+          <div class="about-split__visual" aria-hidden="true">
+            <div class="about-split__emblem-wrap">
+              <div class="about-split__emblem-ring-2"></div>
+              <div class="about-split__emblem-ring"></div>
+              <img
+                src="assets/symbol.png"
+                alt=""
+                class="about-split__emblem"
+                width="320"
+                height="320"
+              />
+            </div>
+          </div>
+
+          <div class="about-split__content">
+            <p class="section-label reveal">La firma</p>
+            <h2 class="section__title section__title--left reveal reveal-delay-1" id="about-title">
+              International<br/><em>Legal Services</em>
+            </h2>
+            <p class="about-split__text reveal reveal-delay-2">
+              Firma legal internacional especializada en la protección y recuperación
+              de capital, operando bajo principios de rigor normativo, control
+              jurídico y precisión estratégica.
+            </p>
+            <p class="about-split__text about-split__text--compact reveal reveal-delay-2">
+              Trabajamos exclusivamente con casos de alta complejidad que requieren
+              coordinación multijurisdiccional, análisis forense financiero y
+              experiencia probada en litigios internacionales.
+            </p>
+
+            <div class="about-metrics reveal reveal-delay-3">
+              <div class="about-metric">
+                <div class="about-metric__value">Pearl</div>
+                <div class="about-metric__label">Investment Corporation</div>
+              </div>
+              <div class="about-metric">
+                <div class="about-metric__value">Austin, TX</div>
+                <div class="about-metric__label">United States of America</div>
+              </div>
+            </div>
+
+            <button class="btn btn--outline reveal reveal-delay-3" data-modal-open>
+              Iniciar evaluación jurídica
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:16px;height:16px;">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         CTA FINAL
+         ============================================= -->
+    <section class="cta-section" id="contacto" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-section__inner">
+          <p class="section-label section-label--center reveal">Evaluación jurídica inicial</p>
+          <h2 class="cta-section__title reveal reveal-delay-1" id="cta-title">
+            Solicite un análisis<br/><em>preliminar de su caso</em>
+          </h2>
+          <p class="cta-section__sub reveal reveal-delay-2">
+            Evaluación jurídica conforme a jurisdicción y normativa aplicable.
+            Confidencialidad garantizada en todos los intercambios.
+          </p>
+          <div class="reveal reveal-delay-3">
+            <button class="btn btn--primary btn--hero" data-modal-open>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              Iniciar proceso de evaluación
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer__grid">
+        <div>
+          <img
+            src="assets/logo-horizontal.png"
+            alt="Pearl Investment Corporation"
+            class="footer__logo"
+            width="180"
+            height="36"
+          />
+          <p class="footer__desc">
+            Firma legal internacional. Especialistas en recuperación de capital,
+            trazabilidad de activos y resolución de conflictos transfronterizos complejos.
+          </p>
+        </div>
+
+        <nav aria-label="Legal">
+          <p class="footer__col-title">Legal</p>
+          <ul class="footer__links" role="list">
+            <li><a href="#" class="footer__link">Términos y Condiciones</a></li>
+            <li><a href="aviso-legal.html" class="footer__link">Aviso Legal</a></li>
+            <li><a href="#" class="footer__link">Política de Privacidad</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Contacto">
+          <p class="footer__col-title">Contacto</p>
+          <ul class="footer__links" role="list">
+            <li>
+              <a href="mailto:legal@pearlinvestment.com" class="footer__link">
+                legal@pearlinvestment.com
+              </a>
+            </li>
+            <li>
+              <span class="footer__link footer__link--muted">
+                Austin, TX · United States
+              </span>
+            </li>
+            <li>
+              <button class="footer__link footer__link--button" data-modal-open>
+                Solicitar evaluación →
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © 2026 Pearl Investment Corporation · International Legal Services.
+          All rights reserved.
+        </p>
+        <p class="footer__copy footer__copy--gold">
+          Registered in Austin, TX · ID: 0110710400
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =============================================
+       MODAL — SOLICITAR CONSULTA
+       ============================================= -->
+  <div
+    class="modal-overlay"
+    id="modalOverlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <div class="modal">
+
+      <div class="modal__header">
+        <div class="modal__heading">
+          <h2 class="modal__title" id="modal-title">Solicitar Evaluación</h2>
+          <p class="modal__subtitle">
+            Consulta jurídica inicial — Confidencial
+          </p>
+        </div>
+        <button class="modal__close" data-modal-close aria-label="Cerrar modal">✕</button>
+      </div>
+
+      <form id="contactForm" novalidate>
+        <div class="contact-form__fields">
+          <div class="contact-form__grid">
+            <div class="form-group">
+              <label class="form-label" for="field-name">Nombre Completo *</label>
+              <input
+                class="form-input"
+                type="text"
+                id="field-name"
+                name="name"
+                required
+                autocomplete="name"
+                placeholder="Su nombre completo"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="field-email">Correo Electrónico *</label>
+              <input
+                class="form-input"
+                type="email"
+                id="field-email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="correo@ejemplo.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="field-phone">Teléfono *</label>
+              <input
+                class="form-input"
+                type="tel"
+                id="field-phone"
+                name="phone"
+                required
+                placeholder="+1 000 000 0000"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-country">País *</label>
+              <select class="form-input" id="field-country" name="country" required>
+                <option value="" disabled selected>Seleccione</option>
+                <option>Colombia</option>
+                <option>México</option>
+                <option>Estados Unidos</option>
+                <option>España</option>
+                <option>Argentina</option>
+                <option>Chile</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="field-service">Servicio Solicitado *</label>
+              <select class="form-input" id="field-service" name="service" required>
+                <option value="" disabled selected>Seleccione un servicio</option>
+                <option>Recuperación de Fondos y Trazabilidad</option>
+                <option>Conflictos de Inversión</option>
+                <option>Mitigación de Riesgo</option>
+                <option>Estructuración Transfronteriza</option>
+                <option>Consulta General</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="field-desc">Descripción del caso *</label>
+              <textarea
+                class="form-input form-input--textarea"
+                id="field-desc"
+                name="description"
+                required
+                placeholder="Describa brevemente su situación jurídica..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-consent">
+            <input
+              type="checkbox"
+              class="form-consent__check"
+              id="field-privacy"
+              name="privacy"
+              required
+            />
+            <label for="field-privacy" class="form-consent__label">
+              Acepto la política de tratamiento de datos personales
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn--primary btn--submit"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>
