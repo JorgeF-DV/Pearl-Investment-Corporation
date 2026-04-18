@@ -160,18 +160,40 @@ practiceCards.forEach(card => {
 const modalOverlay = document.getElementById('modalOverlay');
 const modalCloseBtns = document.querySelectorAll('[data-modal-close]');
 const modalOpenBtns = document.querySelectorAll('[data-modal-open]');
+let modalLastFocusedEl = null;
 
-function openModal() {
+function getFocusableElements(container) {
+  if (!container) return [];
+  return Array.from(
+    container.querySelectorAll(
+      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+    )
+  ).filter((el) => !el.hasAttribute('hidden'));
+}
+
+function openModal(triggerEl = document.activeElement) {
+  modalLastFocusedEl = triggerEl;
   modalOverlay?.classList.add('is-open');
   document.body.style.overflow = 'hidden';
+
+  const focusables = getFocusableElements(modalOverlay);
+  if (focusables.length) {
+    focusables[0].focus();
+  }
 }
 
 function closeModal() {
   modalOverlay?.classList.remove('is-open');
   document.body.style.overflow = '';
+
+  if (modalLastFocusedEl && typeof modalLastFocusedEl.focus === 'function') {
+    modalLastFocusedEl.focus();
+  }
 }
 
-modalOpenBtns.forEach(btn => btn.addEventListener('click', openModal));
+modalOpenBtns.forEach(btn => {
+  btn.addEventListener('click', () => openModal(btn));
+});
 modalCloseBtns.forEach(btn => btn.addEventListener('click', closeModal));
 
 modalOverlay?.addEventListener('click', (e) => {
@@ -179,37 +201,189 @@ modalOverlay?.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
+  if (!modalOverlay?.classList.contains('is-open')) return;
+
   if (e.key === 'Escape') closeModal();
+
+  if (e.key === 'Tab') {
+    const focusables = getFocusableElements(modalOverlay);
+    if (!focusables.length) return;
+
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 });
 
 // ============================================
 // FORM SUBMISSION
 // ============================================
 const contactForm = document.getElementById('contactForm');
+const contactFormStatus = document.getElementById('contactFormStatus');
+const whatsappNumber = contactForm?.dataset.whatsappNumber || '';
+const web3formsAccessKey = (contactForm?.dataset.web3formsKey || '').trim();
+
+function setContactStatus(message, type = 'info') {
+  if (!contactFormStatus) return;
+  contactFormStatus.textContent = message;
+  contactFormStatus.dataset.state = type;
+}
+
+function buildWhatsAppUrl(formData) {
+  const message = [
+    'Hola, quiero hacer una consulta legal inicial.',
+    `Nombre: ${formData.get('name') || 'No indicado'}`,
+    `Correo: ${formData.get('email') || 'No indicado'}`,
+    `Teléfono: ${formData.get('phone') || 'No indicado'}`,
+    `País: ${formData.get('country') || 'No indicado'}`,
+    `Servicio: ${formData.get('service') || 'No indicado'}`,
+    `Descripción: ${formData.get('description') || 'No indicada'}`
+  ].join('\n');
+
+  if (!whatsappNumber) {
+    return `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+  }
+
+  const phone = whatsappNumber.replace(/\D/g, '');
+
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+function sendWithFormSubmitIframe(formData) {
+  const sinkFrame = document.getElementById('formSubmitSink');
+  if (!sinkFrame) {
+    return Promise.reject(new Error('Missing form submission sink iframe.'));
+  }
+
+  return new Promise((resolve, reject) => {
+    const tempForm = document.createElement('form');
+    tempForm.method = 'POST';
+    tempForm.action = contactForm.action;
+    tempForm.target = 'formSubmitSink';
+    tempForm.style.display = 'none';
+
+    const payload = {
+      ...Object.fromEntries(formData.entries()),
+      _subject: 'Nuevo contacto desde Pearl Investment',
+      _template: 'table',
+      submitted_at: new Date().toISOString(),
+      event_id: `evt_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+      source: 'website_modal_whatsapp_flow'
+    };
+
+    Object.entries(payload).forEach(([key, value]) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = String(value ?? '');
+      tempForm.appendChild(input);
+    });
+
+    const onLoad = () => {
+      clearTimeout(timeoutId);
+      sinkFrame.removeEventListener('load', onLoad);
+      resolve();
+    };
+
+    const timeoutId = setTimeout(() => {
+      sinkFrame.removeEventListener('load', onLoad);
+      reject(new Error('Internal email submission timeout.'));
+    }, 15000);
+
+    sinkFrame.addEventListener('load', onLoad, { once: true });
+    document.body.appendChild(tempForm);
+    tempForm.submit();
+    tempForm.remove();
+  });
+}
+
+function sendWithWeb3Forms(formData) {
+  if (!web3formsAccessKey) {
+    return Promise.reject(new Error('Missing Web3Forms access key.'));
+  }
+
+  const payload = {
+    access_key: web3formsAccessKey,
+    subject: 'Nuevo contacto desde Pearl Investment',
+    from_name: 'Pearl Investment Website',
+    name: String(formData.get('name') || ''),
+    email: String(formData.get('email') || ''),
+    phone: String(formData.get('phone') || ''),
+    country: String(formData.get('country') || ''),
+    service: String(formData.get('service') || ''),
+    message: String(formData.get('description') || ''),
+    submitted_at: new Date().toISOString(),
+    source: 'website_modal_whatsapp_flow'
+  };
+
+  function postOnce(timeoutMs = 12000) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+    return fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (!result || result.success !== true) {
+          throw new Error('Web3Forms rejected submission.');
+        }
+      })
+      .finally(() => clearTimeout(timeoutId));
+  }
+
+  return postOnce().catch(() => postOnce());
+}
+
+function sendInternalEmail(formData) {
+  return sendWithWeb3Forms(formData).catch(() => sendWithFormSubmitIframe(formData));
+}
 
 contactForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   const btn = contactForm.querySelector('[type="submit"]');
   const originalText = btn.innerHTML;
+  const formData = new FormData(contactForm);
 
-  btn.innerHTML = 'Enviando…';
+  if (!contactForm.reportValidity()) {
+    setContactStatus('Revisa los campos obligatorios antes de continuar.', 'error');
+    return;
+  }
+
+  const whatsAppUrl = buildWhatsAppUrl(formData);
+  window.open(whatsAppUrl, '_blank', 'noopener,noreferrer');
+
+  btn.innerHTML = 'Abriendo WhatsApp…';
   btn.disabled = true;
+  setContactStatus('WhatsApp se abrió con el mensaje prellenado. Continúa allí para enviarlo.', 'success');
 
-  // Simulate async (replace with real endpoint)
+  sendInternalEmail(formData)
+    .catch(() => {
+      // Internal fallback only: keep user flow focused on WhatsApp.
+      console.warn('No se pudo enviar el correo interno automáticamente.');
+    });
+
   setTimeout(() => {
-    btn.innerHTML = '✓ Enviado correctamente';
-    btn.style.background = 'rgba(200, 169, 110, 0.2)';
-    btn.style.color = 'var(--gold)';
-    btn.style.border = '1px solid var(--gold-border)';
-
-    setTimeout(() => {
-      closeModal();
-      contactForm.reset();
-      btn.innerHTML = originalText;
-      btn.disabled = false;
-      btn.style = '';
-    }, 2500);
-  }, 1200);
+    closeModal();
+    contactForm.reset();
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+    btn.style = '';
+    setContactStatus('', 'info');
+  }, 1300);
 });
 
 

@@ -13,17 +13,17 @@
   padding-inline: var(--space-8);
   transition: background var(--duration-slow) var(--ease-smooth),
               border-color var(--duration-slow) var(--ease-smooth);
-  border-bottom: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(10, 25, 47, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
 .nav.scrolled {
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(10, 25, 47, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-color: var(--line-soft);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .nav__logo-link {
@@ -44,9 +44,10 @@
 }
 
 .nav__logo {
-  height: 42px;
+  height: 54px;
   width: auto;
   opacity: 1;
+  filter: drop-shadow(0 1px 2px rgba(10, 25, 47, 0.25));
   transition: opacity var(--duration-base) var(--ease-smooth);
 }
 .nav__logo:hover { opacity: 1; }
@@ -63,7 +64,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--navy);
+  color: rgba(255, 255, 255, 0.86);
   transition: color var(--duration-base) var(--ease-smooth);
   position: relative;
 }
@@ -73,15 +74,15 @@
   position: absolute;
   bottom: -4px; left: 0; right: 0;
   height: 2px;
-  background: var(--hover-accent);
+  background: var(--gold);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--duration-base) var(--ease-smooth);
 }
 
-.nav__link:hover { color: var(--hover-accent); }
+.nav__link:hover { color: #ffffff; }
 .nav__link:hover::after { transform: scaleX(1); }
-.nav__link.is-active { color: var(--navy-mid); }
+.nav__link.is-active { color: var(--gold-bright); }
 .nav__link.is-active::after { transform: scaleX(1); }
 
 .nav__cta {
@@ -90,21 +91,21 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--navy);
-  background: rgba(197, 160, 89, 0.12);
-  border: 1px solid rgba(154, 122, 61, 0.4);
+  color: #ffffff;
+  background: linear-gradient(180deg, #c8a45f 0%, #b98f4a 100%);
+  border: 1px solid #927037;
   padding: 0.72rem 1.35rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(10, 25, 47, 0.08);
+  box-shadow: 0 6px 14px rgba(146, 112, 55, 0.22);
   transition: background var(--duration-base) var(--ease-smooth),
               border-color var(--duration-base) var(--ease-smooth),
               color var(--duration-base) var(--ease-smooth),
               transform var(--duration-base) var(--ease-smooth);
 }
 .nav__cta:hover {
-  background: var(--navy);
-  color: var(--white);
-  border-color: var(--navy);
+  background: linear-gradient(180deg, #bd9854 0%, #a87f3d 100%);
+  color: #ffffff;
+  border-color: #7f622f;
   transform: translateY(-1px);
 }
 
@@ -118,7 +119,7 @@
 .nav__hamburger span {
   display: block;
   width: 24px; height: 1px;
-  background: var(--navy);
+  background: #ffffff;
   transition: all var(--duration-base) var(--ease-smooth);
 }
 
@@ -258,6 +259,23 @@
   justify-content: center;
   padding: 0.9rem 1.2rem;
   margin-top: var(--space-2);
+}
+
+.contact-form__status {
+  min-height: 1.2em;
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #2d3f57;
+}
+
+.contact-form__status[data-state='success'] {
+  color: #1f6a33;
+}
+
+.contact-form__status[data-state='error'] {
+  color: #8f1f1f;
 }
 
 .btn--ghost {
@@ -651,6 +669,17 @@ textarea.form-input {
   cursor: pointer;
 }
 
+.form-consent__link {
+  color: var(--navy-mid);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.form-consent__link:hover {
+  color: var(--gold-dim);
+}
+
 /* ---- MODAL ---- */
 .modal-overlay {
   position: fixed;
@@ -722,7 +751,7 @@ textarea.form-input {
 
 .modal__subtitle {
   font-size: var(--text-sm);
-  color: var(--white-30);
+  color: #4b5f7e;
   margin-top: var(--space-1);
 }
 
@@ -758,10 +787,10 @@ textarea.form-input {
 }
 
 .footer__logo {
-  height: 36px;
+  height: 60px;
   width: auto;
   margin-bottom: var(--space-6);
-  opacity: 0.8;
+  opacity: 0.92;
 }
 
 .footer__desc {
@@ -876,6 +905,8 @@ textarea.form-input {
 }
 
 @media (max-width: 768px) {
+  .nav__logo { height: 46px; }
+  .footer__logo { height: 52px; }
   .nav__links,
   .nav__cta { display: none; }
   .nav__hamburger { display: flex; }
